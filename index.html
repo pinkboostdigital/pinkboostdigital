@@ -1,0 +1,501 @@
+<!doctype html>
+<html lang="en" style="scroll-behavior:smooth">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<meta name="description" content="PinkBoost Marketing - Facebook, Instagram, Google and YouTube ads, lead generation, and business automation in Cebu City.">
+<title>PinkBoost Marketing</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,500;12..96,700;12..96,800&family=Figtree:ital,wght@0,400;0,500;0,600;1,400&display=swap">
+<style>
+/* Layout: a magenta "ad funnel" page — hero with Cielo, two service tracks, an inquiry-to-order pipeline, then proof and contact. */
+:root{
+  --bg:#fff7fa; --surface:#ffffff; --tint:#ffe6ef; --fg:#2a0f1c; --muted:#7a4a60;
+  --line:#f3cfdd; --accent:#d81b6a; --accent-2:#ff5fa2; --on-accent:#ffffff;
+  --hero-a:#a3124f; --hero-b:#e8307f;
+  --display:"Bricolage Grotesque", "Segoe UI", system-ui, sans-serif;
+  --body:"Figtree", "Segoe UI", system-ui, sans-serif;
+}
+@media (prefers-color-scheme: dark){:root:not([data-theme="light"]){
+  --bg:#1a0912; --surface:#260f1b; --tint:#341424; --fg:#fde8f0; --muted:#d6a3bb;
+  --line:#4a1d33; --accent:#ff4f97; --accent-2:#ff8fbf; --on-accent:#2a0716;
+  --hero-a:#5e0a2e; --hero-b:#a3124f; color-scheme:dark }}
+:root[data-theme="dark"]{
+  --bg:#1a0912; --surface:#260f1b; --tint:#341424; --fg:#fde8f0; --muted:#d6a3bb;
+  --line:#4a1d33; --accent:#ff4f97; --accent-2:#ff8fbf; --on-accent:#2a0716;
+  --hero-a:#5e0a2e; --hero-b:#a3124f; color-scheme:dark }
+
+*{box-sizing:border-box}
+body{background:var(--bg);color:var(--fg);font:16px/1.6 var(--body);padding-inline:16px}
+.wrap{max-width:1100px;margin-inline:auto}
+h1,h2,h3{font-family:var(--display);line-height:1.08;text-wrap:balance;margin:0}
+h2{font-size:clamp(1.8rem,4.2vw,2.7rem);font-weight:800;letter-spacing:-.02em}
+h3{font-size:1.2rem;font-weight:700}
+p{margin:0}
+a{color:inherit}
+:focus-visible{outline:3px solid var(--accent-2);outline-offset:3px;border-radius:6px}
+.eyebrow{font-size:.78rem;font-weight:600;letter-spacing:.14em;text-transform:uppercase;color:var(--accent)}
+section{padding-block:72px}
+.lead{color:var(--muted);max-width:60ch;font-size:1.06rem}
+
+/* theme toggle */
+.theme-toggle{width:38px;height:38px;border-radius:50%;border:2px solid var(--line);background:var(--surface);color:var(--fg);cursor:pointer;display:flex;align-items:center;justify-content:center;transition:background .2s,border-color .2s;flex:none}
+.theme-toggle:hover{border-color:var(--accent);color:var(--accent)}
+.theme-toggle .icon-moon{display:none}
+[data-theme="dark"] .theme-toggle .icon-sun{display:none}
+[data-theme="dark"] .theme-toggle .icon-moon{display:block}
+@media(prefers-color-scheme:dark){:root:not([data-theme="light"]) .theme-toggle .icon-sun{display:none}:root:not([data-theme="light"]) .theme-toggle .icon-moon{display:block}}
+@media(max-width:760px){.theme-toggle{display:none}}
+nav{display:flex;align-items:center;justify-content:space-between;gap:16px;padding-block:18px;flex-wrap:wrap}
+.brand{display:flex;align-items:center;gap:12px;text-decoration:none}
+.brand img{width:44px;height:44px;border-radius:50%;object-fit:cover}
+.brand b{font-family:var(--display);font-weight:800;font-size:1.15rem;letter-spacing:.02em;display:block;line-height:1}
+.brand small{font-size:.68rem;letter-spacing:.3em;text-transform:uppercase;color:var(--muted)}
+.navlinks{display:flex;gap:22px;font-weight:500;font-size:.95rem}
+.navlinks a{text-decoration:none;color:var(--muted)}
+.navlinks a:hover{color:var(--accent)}
+.btn{display:inline-flex;align-items:center;gap:8px;padding:13px 22px;border-radius:999px;font-weight:600;text-decoration:none;border:0;cursor:pointer;font:600 1rem var(--body);transition:transform .15s}
+.btn:hover{transform:translateY(-2px)}
+.btn-main{background:var(--accent);color:var(--on-accent)}
+.btn-ghost{background:transparent;color:#fff;box-shadow:inset 0 0 0 2px rgba(255,255,255,.6)}
+
+/* hero */
+.hero{position:relative;overflow:hidden;border-radius:28px;color:#fff;
+  background:radial-gradient(circle at 85% 20%,rgba(255,170,205,.45),transparent 45%),linear-gradient(135deg,var(--hero-a),var(--hero-b));
+  display:grid;grid-template-columns:1.25fr .9fr;align-items:end;margin-top:6px}
+.hero-copy{padding:56px 0 56px 52px;display:grid;gap:22px;min-width:0;align-self:center}
+.hero h1{font-size:clamp(2.3rem,5.6vw,4.1rem);font-weight:800;letter-spacing:-.03em}
+.hero h1 em{font-style:normal;color:#ffd1e3}
+.hero p{font-size:1.1rem;max-width:46ch;color:#ffe3ee}
+.hero .tag{font-size:.78rem;letter-spacing:.2em;text-transform:uppercase;font-weight:600;color:#ffc2da}
+.cta-row{display:flex;gap:12px;flex-wrap:wrap}
+.hero figure{margin:0;align-self:end;justify-self:center;max-width:380px}
+.hero figure img{display:block;width:100%;-webkit-mask-image:linear-gradient(to bottom,#000 80%,transparent);mask-image:linear-gradient(to bottom,#000 80%,transparent)}
+.platforms{display:flex;flex-wrap:wrap;gap:8px}
+.platforms span{display:inline-flex;align-items:center;justify-content:center;width:36px;height:36px;border-radius:50%;background:rgba(255,255,255,.16);color:#fff}
+
+/* introduction section styles */
+.intro{display:grid;grid-template-columns:1fr 1.15fr;gap:48px;align-items:start}
+.intro-pts{display:grid;gap:14px;margin:0;padding:0;list-style:none}
+.intro-pts li{border:1px solid var(--line);border-radius:18px;padding:20px 22px;display:grid;gap:4px;background:var(--surface)}
+.intro-pts b{font-size:1.08rem}
+.intro-pts span{color:var(--muted);font-size:.95rem}
+.reach{margin-top:18px;font-weight:600;color:var(--accent)}
+
+/* services */
+.sec-head{display:grid;gap:12px;margin-bottom:36px}
+.tracks{display:grid;grid-template-columns:1fr 1fr;gap:20px}
+.track{background:var(--surface);border:1px solid var(--line);border-radius:22px;padding:30px;display:grid;gap:18px;align-content:start}
+.track-top{display:flex;align-items:center;gap:14px}
+.ico{width:46px;height:46px;border-radius:14px;display:grid;place-items:center;background:var(--tint);color:var(--accent);flex:none}
+.ico svg{width:24px;height:24px}
+ul.checks{list-style:none;margin:0;padding:0;display:grid;gap:12px}
+ul.checks li{display:grid;grid-template-columns:22px 1fr;gap:10px;align-items:start}
+ul.checks li::before{content:"";width:20px;height:20px;margin-top:3px;border-radius:50%;background:var(--accent) url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 20 20'%3E%3Cpath d='M5.5 10.5l3 3 6-7' fill='none' stroke='white' stroke-width='2.4' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E") center/14px no-repeat}
+.track .note{font-size:.92rem;color:var(--muted);border-top:1px dashed var(--line);padding-top:16px}
+
+/* pipeline */
+.pipe-band{background:var(--tint);border-radius:28px;padding:56px 44px}
+.pipe{display:grid;grid-template-columns:repeat(6,1fr);gap:12px;list-style:none;margin:36px 0 0;padding:0;counter-reset:s}
+.pipe li{counter-increment:s;background:var(--surface);border-radius:18px;padding:20px 16px;display:grid;gap:6px;position-relative;min-width:0}
+.pipe li::before{content:"0" counter(s);font:700 .8rem var(--display);color:var(--accent);letter-spacing:.08em}
+.pipe li b{font-family:var(--display);font-size:1.05rem}
+.pipe li span{font-size:.88rem;color:var(--muted);line-height:1.45}
+.handover{margin-top:28px;display:flex;gap:14px;align-items:center;flex-wrap:wrap;font-weight:500}
+.handover strong{color:var(--accent)}
+
+/* approach */
+.split{display:grid;grid-template-columns:1fr 1.1fr;gap:48px;align-items:start}
+.quote{font-family:var(--display);font-weight:700;font-size:clamp(1.6rem,3.4vw,2.3rem);line-height:1.15;letter-spacing:-.02em}
+.quote em{font-style:normal;color:var(--accent)}
+.focus{display:grid;gap:0;margin:0;padding:0;list-style:none}
+.focus li{display:grid;gap:4px;padding-block:18px;border-bottom:1px solid var(--line)}
+.focus li:first-child{padding-top:0}
+.focus b{font-family:var(--display);font-size:1.1rem}
+.focus span{color:var(--muted)}
+
+/* industries & why */
+.grid3{display:grid;grid-template-columns:repeat(3,1fr);gap:14px}
+.ind{display:flex;align-items:center;gap:12px;padding:18px 20px;border-radius:16px;border:1px solid var(--line);background:var(--surface);font-weight:600}
+.ind i{font-style:normal;width:10px;height:10px;border-radius:50%;background:var(--accent-2);flex:none}
+.small-note{margin-top:16px;color:var(--muted);font-size:.95rem}
+.why{display:grid;grid-template-columns:repeat(5,1fr);gap:14px;margin-top:28px}
+.why div{padding-top:16px;border-top:3px solid var(--accent);display:grid;gap:6px}
+.why b{font-family:var(--display);font-size:1.02rem}
+.why span{font-size:.9rem;color:var(--muted)}
+
+/* about */
+.about{display:grid;grid-template-columns:auto 1fr;gap:32px;align-items:center;background:var(--surface);border:1px solid var(--line);border-radius:28px;padding:36px}
+.about img{width:150px;height:150px;border-radius:50%;object-fit:cover;object-position:50% 20%;background:var(--tint)}
+.about div{display:grid;gap:12px;min-width:0}
+
+/* contact */
+.contact{border-radius:28px;color:#fff;background:linear-gradient(135deg,var(--hero-a),var(--hero-b));padding:56px 44px;display:grid;grid-template-columns:1.1fr 1fr;gap:36px;align-items:center}
+.contact h2{color:#fff}
+.contact p{color:#ffe3ee;max-width:44ch}
+.cards{display:grid;gap:12px}
+.cc{background:rgba(255,255,255,.14);border-radius:18px;padding:18px 20px;display:flex;justify-content:space-between;align-items:center;gap:12px;flex-wrap:wrap}
+.cc small{display:block;font-size:.72rem;letter-spacing:.16em;text-transform:uppercase;color:#ffc2da;font-weight:600}
+.cc span{font-weight:600;font-size:1.05rem;word-break:break-all;user-select:all}
+.copy{background:#fff;color:#a3124f;border:0;border-radius:999px;padding:8px 16px;font:600 .88rem var(--body);cursor:pointer}
+footer{padding-block:36px 48px;display:flex;justify-content:space-between;flex-wrap:wrap;gap:12px;color:var(--muted);font-size:.9rem}
+footer b{font-family:var(--display);color:var(--fg)}
+.social-links{display:flex;gap:10px;align-items:center;flex-wrap:wrap}
+.social-links a{display:flex;align-items:center;justify-content:center;width:38px;height:38px;border-radius:50%;background:var(--tint);color:var(--accent);transition:background .2s,color .2s;text-decoration:none}
+.social-links a:hover{background:var(--accent);color:#fff}
+.social-links svg{width:18px;height:18px}
+
+@media (max-width:900px){
+  .pipe{grid-template-columns:repeat(3,1fr)}
+  .why{grid-template-columns:repeat(2,1fr)}
+}
+@media (max-width:760px){
+  section{padding-block:52px}
+  .navlinks{display:none}
+  .hero{grid-template-columns:1fr;background:radial-gradient(circle at 80% 10%,rgba(255,170,205,.18),transparent 50%),#fff7fa;color:var(--fg)}
+  .hero-copy{padding:40px 26px 8px}
+  .hero h1{color:var(--fg)}
+  .hero h1 em{color:var(--accent)}
+  .hero p{color:var(--muted)}
+  .hero .tag{color:var(--accent)}
+  .hero .btn-ghost{color:var(--accent);box-shadow:inset 0 0 0 2px var(--accent)}
+  .hero .platforms span{background:var(--tint);color:var(--accent)}
+  .hero .btn-main[style]{background:var(--accent)!important;color:#fff!important}
+  .intro{grid-template-columns:1fr}
+}
+
+/* Dark mode mobile: hero back to pink gradient */
+@media(max-width:760px){
+  [data-theme="dark"] .hero{background:radial-gradient(circle at 85% 20%,rgba(255,170,205,.45),transparent 45%),linear-gradient(135deg,var(--hero-a),var(--hero-b))!important;color:#fff!important}
+  [data-theme="dark"] .hero h1{color:#fff!important}
+  [data-theme="dark"] .hero h1 em{color:#ffd1e3!important}
+  [data-theme="dark"] .hero p{color:#ffe3ee!important}
+  [data-theme="dark"] .hero .tag{color:#ffc2da!important}
+  [data-theme="dark"] .hero .btn-ghost{color:#fff!important;box-shadow:inset 0 0 0 2px rgba(255,255,255,.6)!important}
+  [data-theme="dark"] .hero .platforms span{background:rgba(255,255,255,.16)!important;color:#fff!important}
+  [data-theme="dark"] .hero .btn-main[style]{background:#fff!important;color:#a3124f!important}
+  .hero figure{max-width:300px}
+  .tracks,.split,.contact{grid-template-columns:1fr}
+  .grid3{grid-template-columns:1fr 1fr}
+  .pipe{grid-template-columns:1fr 1fr}
+  .pipe-band,.contact{padding:40px 22px}
+  .about{grid-template-columns:1fr;text-align:left;padding:26px}
+  .about img{width:110px;height:110px}
+  .track{padding:24px}
+}
+@media (max-width:420px){.grid3,.why{grid-template-columns:1fr}}
+@media (prefers-reduced-motion:reduce){.btn{transition:none}.btn:hover{transform:none}}
+</style>
+<style>body{margin:0}img{max-width:100%}[hidden]{display:none!important}
+
+/* Hamburger menu */
+.hamburger{display:none;flex-direction:column;gap:5px;cursor:pointer;padding:8px;border:none;background:transparent;z-index:100}
+.hamburger span{display:block;width:24px;height:2px;background:var(--fg);border-radius:2px;transition:transform .25s,opacity .25s}
+.hamburger.open span:nth-child(1){transform:translateY(7px) rotate(45deg)}
+.hamburger.open span:nth-child(2){opacity:0}
+.hamburger.open span:nth-child(3){transform:translateY(-7px) rotate(-45deg)}
+.mobile-nav{display:none;position:fixed;inset:0;background:var(--bg);z-index:99;flex-direction:column;align-items:center;justify-content:center;gap:32px}
+.mobile-nav.open{display:flex}
+.mobile-nav a{font:700 1.4rem var(--display);text-decoration:none;color:var(--fg)}
+.mobile-nav a:hover{color:var(--accent)}
+.mobile-nav .btn-main{font-size:1rem;margin-top:8px}
+.mob-theme-toggle{background:var(--tint);border:2px solid var(--line);border-radius:999px;padding:12px 28px;font:600 1rem var(--body);color:var(--accent);cursor:pointer;margin-top:8px}
+.mob-theme-toggle .mob-icon-moon{display:none}
+[data-theme="dark"] .mob-theme-toggle .mob-icon-sun{display:none}
+[data-theme="dark"] .mob-theme-toggle .mob-icon-moon{display:inline}
+
+/* Back to top */
+.back-top{position:fixed;bottom:24px;right:24px;width:44px;height:44px;border-radius:50%;background:var(--accent);color:#fff;border:none;cursor:pointer;font-size:1.2rem;display:flex;align-items:center;justify-content:center;opacity:0;pointer-events:none;transition:opacity .3s,transform .3s;z-index:98;box-shadow:0 4px 16px rgba(0,0,0,.25)}
+.back-top.visible{opacity:1;pointer-events:auto}
+.back-top:hover{transform:translateY(-3px)}
+
+/* Floating Messenger button */
+.fb-float{position:fixed;bottom:80px;right:24px;width:52px;height:52px;border-radius:50%;background:linear-gradient(135deg,#00c6ff,#0068ff);color:#fff;display:flex;align-items:center;justify-content:center;text-decoration:none;z-index:98;box-shadow:0 4px 16px rgba(0,0,0,.3);transition:transform .2s,box-shadow .2s}
+.fb-float:hover{transform:translateY(-3px);box-shadow:0 8px 24px rgba(0,0,0,.35)}
+
+@media (max-width:760px){.hamburger{display:flex}}
+</style>
+</head>
+<body>
+
+<div class="wrap">
+  <nav>
+    <a class="brand" href="#top" id="top">
+      <img src="logo.png" alt="PinkBoost Marketing logo">
+      <span><b>PINKBOOST</b><small>Marketing</small></span>
+    </a>
+    <div class="navlinks">
+      <a href="#services">Services</a>
+      <a href="#process">How it works</a>
+      <a href="#industries">Industries</a>
+      <a href="#about">About</a>
+    </div>
+    <a class="btn btn-main" href="#contact">Let's work together</a>
+    <button class="theme-toggle" id="themeToggle" aria-label="Toggle dark/light mode">
+      <svg class="icon-sun" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" width="18" height="18"><circle cx="12" cy="12" r="5"/><line x1="12" y1="1" x2="12" y2="3"/><line x1="12" y1="21" x2="12" y2="23"/><line x1="4.22" y1="4.22" x2="5.64" y2="5.64"/><line x1="18.36" y1="18.36" x2="19.78" y2="19.78"/><line x1="1" y1="12" x2="3" y2="12"/><line x1="21" y1="12" x2="23" y2="12"/><line x1="4.22" y1="19.78" x2="5.64" y2="18.36"/><line x1="18.36" y1="5.64" x2="19.78" y2="4.22"/></svg>
+      <svg class="icon-moon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" width="18" height="18"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/></svg>
+    </button>
+    <button class="hamburger" id="ham" aria-label="Open menu">
+      <span></span><span></span><span></span>
+    </button>
+  </nav>
+
+  <!-- Mobile nav overlay -->
+  <div class="mobile-nav" id="mobileNav">
+    <a href="#services" class="mob-link">Services</a>
+    <a href="#process" class="mob-link">How it works</a>
+    <a href="#industries" class="mob-link">Industries</a>
+    <a href="#about" class="mob-link">About</a>
+    <a class="btn btn-main" href="#contact">Let's work together</a>
+    <button class="mob-theme-toggle" id="mobThemeToggle">
+      <span class="mob-icon-sun">☀️ Light Mode</span>
+      <span class="mob-icon-moon">🌙 Dark Mode</span>
+    </button>
+  </div>
+
+  <!-- ===== 3. HERO (UPDATED) ===== -->
+  <header class="hero">
+    <div class="hero-copy">
+      <span class="tag">Boost Boldly, Real Results</span>
+      <h1>Digital advertising that <em>delivers results.</em></h1>
+      <p>Boost your sales, grow brand awareness, and generate quality leads through Facebook, Instagram, Google, and YouTube Ads, then capture every inquiry with a system built for your business. No guesswork. No wasted spend.</p>
+      <div class="cta-row">
+        <a class="btn btn-main" style="background:#fff;color:#a3124f" href="#contact">Boost my brand</a>
+        <a class="btn btn-ghost" href="https://www.facebook.com/share/1ByTefqSTz/" target="_blank" rel="noopener">Message us on Facebook</a>
+      </div>
+      <div class="platforms" aria-label="Advertising platforms">
+        <span aria-label="Facebook"><svg viewBox="0 0 24 24" fill="currentColor" width="18" height="18"><path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"/></svg></span>
+        <span aria-label="Instagram"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" width="18" height="18"><rect x="2" y="2" width="20" height="20" rx="5" ry="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.5" cy="6.5" r="1.5" fill="currentColor" stroke="none"/></svg></span>
+        <span aria-label="Google Ads"><svg viewBox="0 0 100 100" width="18" height="18" xmlns="http://www.w3.org/2000/svg">
+          <path d="M50 10 C44 10 39 14 36 20 L8 75 C5 81 9 88 16 88 C20 88 24 85 26 81 L50 35 L74 81 C76 85 80 88 84 88 C91 88 95 81 92 75 L64 20 C61 14 56 10 50 10 Z" fill="currentColor"/>
+        </svg></span>
+        <span aria-label="Google Display"><svg viewBox="0 0 24 24" fill="currentColor" width="18" height="18"><rect x="3" y="3" width="7" height="7" rx="1"/><rect x="14" y="3" width="7" height="7" rx="1"/><rect x="3" y="14" width="7" height="7" rx="1"/><rect x="14" y="14" width="7" height="7" rx="1"/></svg></span>
+        <span aria-label="YouTube"><svg viewBox="0 0 24 24" fill="currentColor" width="18" height="18"><path d="M23 7s-.3-1.9-1.2-2.7c-1.1-1.2-2.4-1.2-3-1.3C16.4 3 12 3 12 3s-4.4 0-6.8.2c-.6.1-1.9.1-3 1.3C1.3 5.3 1 7 1 7S.7 9.1.7 11.2v2c0 2 .3 4.1.3 4.1s.3 1.9 1.2 2.7c1.1 1.2 2.6 1.1 3.3 1.2C7.5 21.4 12 21.4 12 21.4s4.4 0 6.8-.3c.6-.1 1.9-.1 3-1.3.9-.8 1.2-2.7 1.2-2.7s.3-2.1.3-4.1v-2C23.3 9.1 23 7 23 7zM9.7 15.5V8.4l8.1 3.6-8.1 3.5z"/></svg></span>
+        <span aria-label="TikTok"><svg viewBox="0 0 24 24" fill="currentColor" width="18" height="18"><path d="M19.59 6.69a4.83 4.83 0 0 1-3.77-4.25V2h-3.45v13.67a2.89 2.89 0 0 1-2.88 2.5 2.89 2.89 0 0 1-2.89-2.89 2.89 2.89 0 0 1 2.89-2.89c.28 0 .54.04.79.1V9.01a6.33 6.33 0 0 0-.79-.05 6.34 6.34 0 0 0-6.34 6.34 6.34 6.34 0 0 0 6.34 6.34 6.34 6.34 0 0 0 6.33-6.34V8.69a8.18 8.18 0 0 0 4.78 1.52V6.76a4.85 4.85 0 0 1-1.01-.07z"/></svg></span>
+      </div>
+    </div>
+    <figure><img src="cielo.png" alt="Cielo of PinkBoost Marketing with ad dashboards on laptop, tablet and phone"></figure>
+  </header>
+
+  <!-- ===== 2. INTRODUCTION SECTION (NEW) ===== -->
+  <section id="why-digital">
+    <div class="intro">
+      <div>
+        <span class="eyebrow">Introduction</span>
+        <h2>In today's high-tech era, brands that win are the ones seen online.</h2>
+        <p>Digital advertising is now the most powerful and cost-effective way to generate leads, build brand awareness, target specific locations and demographics, and drive sales.</p>
+        <p class="reach">Reach customers across the Philippines and even abroad, anywhere there's internet access.</p>
+      </div>
+      <ul class="intro-pts">
+        <li><b>Lower selling costs</b><span>Unlike traditional marketing, online ads cut the need for face-to-face selling, travel, meals, fuel, and staff allowances.</span></li>
+        <li><b>Faster, measurable results</b><span>See exactly how many people saw, clicked, and inquired, then improve from there.</span></li>
+        <li><b>Your customers are already online</b><span>Almost everyone owns a gadget, from business owners to everyday buyers, so digital platforms are the most effective way to reach them.</span></li>
+        <li><b>Proven, trusted platforms</b><span>Data-driven campaigns on Meta (Facebook &amp; Instagram), Google Ads, and YouTube.</span></li>
+      </ul>
+    </div>
+  </section>
+
+  <section id="services" style="padding-top:0">
+    <div class="sec-head">
+      <span class="eyebrow">What we do</span>
+      <h2>Need customers? Need a smoother workflow? Covered.</h2>
+      <p class="lead">Two services that work together: ads that bring people to your business, and systems that make sure no inquiry slips through.</p>
+    </div>
+    <div class="tracks">
+      <article class="track">
+        <div class="track-top">
+          <div class="ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 11l15-6v14L3 13z"/><path d="M7 13v5a2 2 0 0 0 4 0v-3.5"/><path d="M21 9v6"/></svg></div>
+          <h3>Digital Marketing Services</h3>
+        </div>
+        <ul class="checks">
+          <li>Facebook &amp; Instagram Ads setup and management</li>
+          <li>Google Ads setup and campaign management</li>
+          <li>Google Search Console setup and website verification</li>
+          <li>Social media page management</li>
+          <li>Content planning, captions, and promotional campaigns</li>
+          <li>Lead generation and ads performance reporting</li>
+          <li>Ad creative design and layout, aligned to your brand</li>
+        </ul>
+        <p class="note">Targeting by location, age, and demographics. Product, brand awareness, and lead generation campaigns.</p>
+      </article>
+      <article class="track">
+        <div class="track-top">
+          <div class="ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="3"/><path d="M19.4 15a1.7 1.7 0 0 0 .3 1.8l.1.1a2 2 0 1 1-2.8 2.8l-.1-.1a1.7 1.7 0 0 0-1.8-.3 1.7 1.7 0 0 0-1 1.5V21a2 2 0 1 1-4 0v-.1a1.7 1.7 0 0 0-1.1-1.5 1.7 1.7 0 0 0-1.8.3l-.1.1a2 2 0 1 1-2.8-2.8l.1-.1a1.7 1.7 0 0 0 .3-1.8 1.7 1.7 0 0 0-1.5-1H3a2 2 0 1 1 0-4h.1a1.7 1.7 0 0 0 1.5-1.1 1.7 1.7 0 0 0-.3-1.8l-.1-.1a2 2 0 1 1 2.8-2.8l.1.1a1.7 1.7 0 0 0 1.8.3H9a1.7 1.7 0 0 0 1-1.5V3a2 2 0 1 1 4 0v.1a1.7 1.7 0 0 0 1 1.5 1.7 1.7 0 0 0 1.8-.3l.1-.1a2 2 0 1 1 2.8 2.8l-.1.1a1.7 1.7 0 0 0-.3 1.8V9a1.7 1.7 0 0 0 1.5 1H21a2 2 0 1 1 0 4h-.1a1.7 1.7 0 0 0-1.5 1z"/></svg></div>
+          <h3>Business Systems &amp; Automation</h3>
+        </div>
+        <ul class="checks">
+          <li>Inquiry capture and tracking</li>
+          <li>Lead organization, client databases, and follow-ups</li>
+          <li>Order tracking and status updates</li>
+          <li>Connected workflows from inquiries to leads to orders</li>
+          <li>Automated reports and dashboards</li>
+        </ul>
+        <p class="note">The finished system is turned over to your business, with guidance on how to use and manage it.</p>
+      </article>
+    </div>
+  </section>
+
+  <section id="process" style="padding-top:0">
+    <div class="pipe-band">
+      <div class="sec-head" style="margin:0">
+        <span class="eyebrow">How it works</span>
+        <h2>From the first ad click to a closed order</h2>
+        <p class="lead">Ads direct customers to your business. The system catches each inquiry, organizes the lead, tracks follow-ups, and updates the record when a lead becomes an actual purchase.</p>
+      </div>
+      <ol class="pipe">
+        <li><b>Ad</b><span>Targeted campaign reaches the right people</span></li>
+        <li><b>Inquiry</b><span>Messages and forms captured automatically</span></li>
+        <li><b>Lead</b><span>Sorted into your client database</span></li>
+        <li><b>Follow-up</b><span>Reminders so nobody gets forgotten</span></li>
+        <li><b>Order</b><span>Status updated when the sale closes</span></li>
+        <li><b>Report</b><span>Dashboards show what's working</span></li>
+      </ol>
+      <p class="handover">You own it. <strong>The completed system is handed over to your team.</strong></p>
+    </div>
+  </section>
+
+  <section style="padding-top:0">
+    <div class="split">
+      <div style="display:grid;gap:16px">
+        <span class="eyebrow">Our approach</span>
+        <p class="quote">We don't just "run ads." We turn attention into <em>real inquiries and sales.</em></p>
+        <p class="lead">Every campaign is customized to your goals, industry, and budget.</p>
+      </div>
+      <ul class="focus">
+        <li><b>Clear objectives</b><span>Leads, sales, or awareness: we agree on the goal first.</span></li>
+        <li><b>Precise targeting</b><span>Based on audience behavior, location, age, and demographics.</span></li>
+        <li><b>Clean, high-converting creatives</b><span>Professional layouts that stay true to your brand.</span></li>
+        <li><b>Continuous optimization</b><span>Campaigns are monitored and adjusted to improve results.</span></li>
+      </ul>
+    </div>
+  </section>
+
+  <!-- ===== 4. INDUSTRIES (UPDATED) ===== -->
+  <section id="industries" style="padding-top:0">
+    <div class="sec-head">
+      <span class="eyebrow">Industries we can handle</span>
+      <h2>Open to businesses across different industries</h2>
+    </div>
+    <div class="grid3">
+      <div class="ind"><i></i>Construction &amp; Engineering</div>
+      <div class="ind"><i></i>Real Estate</div>
+      <div class="ind"><i></i>Retail &amp; Online Stores</div>
+      <div class="ind"><i></i>Professional Services</div>
+      <div class="ind"><i></i>Beauty &amp; Wellness</div>
+      <div class="ind"><i></i>Startups &amp; Local Businesses</div>
+      <div class="ind"><i></i>Food Services</div>
+      <div class="ind"><i></i>…and many more</div>
+    </div>
+    <p class="small-note">Not limited to one industry. Products, materials, services, and companies are all welcome. Every campaign is customized to the client's goals, industry, and budget.</p>
+
+    <div class="sec-head" style="margin:56px 0 0">
+      <span class="eyebrow">Why PinkBoost</span>
+      <h2>A reliable advertising partner</h2>
+    </div>
+    <div class="why">
+      <div><b>Data-driven</b><span>Strategies backed by campaign numbers</span></div>
+      <div><b>Clean creatives</b><span>Professional and brand-aligned</span></div>
+      <div><b>Transparent</b><span>Clear campaign handling and reports</span></div>
+      <div><b>Results-focused</b><span>Built around inquiries and sales</span></div>
+      <div><b>Flexible setup</b><span>Freelance or agency-style work</span></div>
+    </div>
+  </section>
+
+  <!-- ===== 5. ABOUT (UPDATED) ===== -->
+  <section id="about" style="padding-top:0">
+    <div class="about">
+      <img src="boss.png" alt="Cielo, founder of PinkBoost Marketing">
+      <div>
+        <span class="eyebrow">Meet the person behind PinkBoost</span>
+        <h2 style="font-size:clamp(1.6rem,3.4vw,2.2rem)">Hi, I'm Cielo.</h2>
+        <p class="lead">I help businesses promote their services, reach potential customers, and organize the journey from inquiry to order. As an independent freelance digital marketer, I handle all kinds of advertising and business automation, so you can focus on running your business.</p>
+        <p class="lead">PinkBoost Marketing is a results-driven digital advertising brand specializing in paid ads, lead generation, and brand awareness for businesses of all sizes, creating strategic, data-driven campaigns that convert attention into real inquiries and sales.</p>
+      </div>
+    </div>
+  </section>
+
+  <section id="contact" style="padding-top:0">
+    <div class="contact">
+      <div style="display:grid;gap:16px">
+        <span class="eyebrow" style="color:#ffc2da">Let's work together</span>
+        <h2>Message us today and let's boost your brand.</h2>
+        <p>Tell us what you sell and who you want to reach. We'll suggest a campaign and the system to support it.</p>
+      </div>
+      <div class="cards">
+        <div class="cc"><div><small>Facebook &amp; Messenger</small><span style="user-select:auto">PinkBoost Marketing page</span></div><span style="display:flex;gap:8px;flex-wrap:wrap"><a class="copy" style="text-decoration:none" href="https://www.facebook.com/share/1ByTefqSTz/" target="_blank" rel="noopener">Message us</a></span></div>
+        <div class="cc"><div><small>Email</small><span id="em">pinkboostmarketing2026@gmail.com</span></div><button class="copy" type="button" data-copy="em">Copy</button></div>
+        <div class="cc"><div><small>Email</small><span id="em2">cieloazucenasruiz@gmail.com</span></div><button class="copy" type="button" data-copy="em2">Copy</button></div>
+        <div class="cc"><div><small>Mobile</small><span id="ph">0956 847 5014</span></div><button class="copy" type="button" data-copy="ph">Copy</button></div>
+      </div>
+    </div>
+  </section>
+
+  <footer>
+    <span><b>PinkBoost Marketing</b> · Cebu City · Boost boldly. Real results.</span>
+    <span>Independent Freelance Digital Marketing &amp; Business Automation · <a href="https://www.facebook.com/share/1ByTefqSTz/" target="_blank" rel="noopener">Facebook</a></span>
+  </footer>
+</div>
+
+<!-- Floating Messenger Button -->
+<a href="https://www.facebook.com/share/1ByTefqSTz/" target="_blank" rel="noopener" class="fb-float" aria-label="Message us on Messenger">
+  <svg viewBox="0 0 24 24" fill="currentColor" width="26" height="26"><path d="M12 2C6.477 2 2 6.235 2 11.45c0 2.888 1.39 5.47 3.57 7.17v3.38l3.26-1.8c.87.24 1.79.37 2.73.37 5.523 0 9.44-4.046 9.44-9.127C21 6.235 17.523 2 12 2zm.94 12.29l-2.4-2.56-4.68 2.56 5.15-5.47 2.46 2.56 4.62-2.56-5.15 5.47z"/></svg>
+</a>
+
+<!-- Back to top button -->
+<button class="back-top" id="backTop" aria-label="Back to top">↑</button>
+
+<script>
+document.querySelectorAll('.copy').forEach(function(b){
+  b.addEventListener('click',function(){
+    var el=document.getElementById(b.dataset.copy), t=el.textContent.replace(/\s/g,'');
+    if(b.dataset.copy==='em') t=el.textContent.trim();
+    var done=function(){b.textContent='Copied';setTimeout(function(){b.textContent='Copy'},1600)};
+    var fallback=function(){var r=document.createRange();r.selectNodeContents(el);var s=getSelection();s.removeAllRanges();s.addRange(r);b.textContent='Selected';setTimeout(function(){b.textContent='Copy'},1600)};
+    try{navigator.clipboard.writeText(t).then(done,fallback)}catch(e){fallback()}
+  });
+});
+
+// Dark/Light mode toggle
+var themeToggle = document.getElementById('themeToggle');
+var mobThemeToggle = document.getElementById('mobThemeToggle');
+var root = document.documentElement;
+var saved = localStorage.getItem('theme');
+if(saved) root.setAttribute('data-theme', saved);
+function toggleTheme(){
+  var current = root.getAttribute('data-theme');
+  var next = current === 'dark' ? 'light' : 'dark';
+  root.setAttribute('data-theme', next);
+  localStorage.setItem('theme', next);
+}
+themeToggle.addEventListener('click', toggleTheme);
+mobThemeToggle.addEventListener('click', toggleTheme);
+
+// Hamburger menu
+var ham=document.getElementById('ham');
+var mobileNav=document.getElementById('mobileNav');
+ham.addEventListener('click',function(){
+  ham.classList.toggle('open');
+  mobileNav.classList.toggle('open');
+  document.body.style.overflow=mobileNav.classList.contains('open')?'hidden':'';
+});
+document.querySelectorAll('.mob-link, .mobile-nav .btn-main').forEach(function(a){
+  a.addEventListener('click',function(){
+    ham.classList.remove('open');
+    mobileNav.classList.remove('open');
+    document.body.style.overflow='';
+  });
+});
+
+// Back to top
+var backTop=document.getElementById('backTop');
+window.addEventListener('scroll',function(){
+  backTop.classList.toggle('visible',window.scrollY>400);
+});
+backTop.addEventListener('click',function(){
+  window.scrollTo({top:0,behavior:'smooth'});
+});
+</script>
+
+</body>
+</html>
